@@ -7,7 +7,6 @@ let currMoleTile,
 
 
 
-
 window.onload = function() {
     setGame()
 }
@@ -20,8 +19,8 @@ function setGame() {
         document.getElementById("board").appendChild(tile);
     }
 
-    setInterval(setMole, 1000);
-    setInterval(setPlant, 2000);
+    setInterval(setMole, 2000);
+    setInterval(setPlant, 3000);
 }
 
 function getRandomTile() {
@@ -82,7 +81,7 @@ function selectTile() {
     }
 
     if(this == currMoleTile ) {
-   
+        currMoleTile.innerHTML = '';
        score += 10;
        if (score % 50 === 0 && score !== 0) {
         document.getElementById("score").style.color = '#00FF00';
@@ -93,8 +92,7 @@ function selectTile() {
     document.getElementById("score").innerText = score.toString();
     }else if(this == currPlantTile){
         GameOver.play()
-        document.getElementById("score").innerText = "GAME OVER:" + score.toString();
+        document.getElementById("score").innerText = `Game over: score: ${score.toString()}`;
         gameOver = true;
     }
 }
-
